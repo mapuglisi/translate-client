@@ -10,7 +10,7 @@ The client is a simple, one page,  Blazor WASM, with a straightforward layout us
 
 Download the code from [repository](https://github.com/mapuglisi/translate-client.git)
 
-You can run this project by using the command `dotnet run` while in the code folder.
+You can run this project by using the command `dotnet run` while in the code folder, as long as you have the .NET SDK available in your machine.
 
 
 

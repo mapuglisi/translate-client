@@ -5,6 +5,9 @@ using System.Runtime.Serialization;
 namespace TranslationClient.Models
 {
 
+    /// <summary>
+    /// A common enumerator defining the supported languages
+    /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum SupportedLanguages
     {

@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace TranslationClient.Models
 {
+
+    /// <summary>
+    /// A simple class containing the necessary parameters to perform a translation
+    /// </summary>
     public class TranslationData
     {
         /// <summary>

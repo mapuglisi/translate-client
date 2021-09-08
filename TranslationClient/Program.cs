@@ -1,17 +1,13 @@
 using BlazorStrap;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using TranslationClient.Services;
 
 namespace TranslationClient
 {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class Program
     {
         public static async Task Main(string[] args)
@@ -26,4 +22,5 @@ namespace TranslationClient
             await builder.Build().RunAsync();
         }
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

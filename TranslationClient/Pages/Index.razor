@@ -1,0 +1,65 @@
+﻿@using TranslationClient.Models;
+
+@page "/"
+
+<h1>Translate</h1>
+
+
+<BSContainer>
+    <BSForm Model="@Translation" OnValidSubmit="@TranslateText" OnInvalidSubmit="HandleInvalidRequest">
+
+        <DataAnnotationsValidator />
+        <ValidationSummary></ValidationSummary>
+        <BSRow>
+            <BSCol MD="6">
+                <BSFormGroup>
+                    <BSLabel For="LanguageSourceSelect">Source Language</BSLabel>
+                    <BSBasicInput Id="LanguageSourceSelect" InputType="InputType.Select" @bind-Value="@Translation.sourceLanguage" >
+                        @foreach (var language in Enum.GetValues(typeof(SupportedLanguages)))
+                        {
+                            if (!string.Equals(language.ToString(), Translation.targetLanguage.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                <option value="@language">@language</option>
+                            }
+                        }
+                    </BSBasicInput>
+                </BSFormGroup>
+            </BSCol>
+            <BSCol MD="6">
+                <BSFormGroup>
+                    <BSLabel For="LanguageTargetSelect">Target Language</BSLabel>
+                    <BSBasicInput Id="LanguageTargetSelect" InputType="InputType.Select" @bind-Value="@Translation.targetLanguage" >
+                        @foreach (var language in Enum.GetValues(typeof(SupportedLanguages)))
+                        {
+                            if (!string.Equals(language.ToString(), Translation.sourceLanguage.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                            {
+                                <option value="@language">@language</option>
+                            }
+                        }
+                    </BSBasicInput>
+                </BSFormGroup>
+            </BSCol>
+        </BSRow>
+
+        <BSRow>
+            <BSCol MD="6">
+                <BSFormGroup>
+                    <BSBasicInput InputType="InputType.TextArea" Name="Source Text" Id="TextSourceLanguage" Rows="5" @bind-Value="@Translation.OriginalText" Class="not-resizable">
+                    </BSBasicInput>
+                </BSFormGroup>
+            </BSCol>
+            <BSCol MD="6">
+                <BSBasicInput InputType="InputType.TextArea" Name="Target Text" Id="TextTargetLanguage" Rows="5" @bind-Value="@Translation.TranslatedText" IsReadonly="true" Class="not-resizable">
+                </BSBasicInput>
+            </BSCol>
+        </BSRow>
+        <BSRow>
+            <BSCol MD="12">
+                <BSFormGroup>
+                    <BSButton Color="Color.Primary" ButtonType="ButtonType.Submit">Translate</BSButton>
+                </BSFormGroup>
+            </BSCol>
+        </BSRow>
+        <label>@Message</label>
+    </BSForm>
+</BSContainer>
